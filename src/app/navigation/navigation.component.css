@@ -1,0 +1,16 @@
+.nav-container{
+    display:flex;
+    flex-direction: row;
+    background-color: aqua;
+    justify-content: space-between;
+}
+li{
+    list-style-type: none;
+    margin-left:3px;
+    margin-right:3px;
+}
+ul{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+}
