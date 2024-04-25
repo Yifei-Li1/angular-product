@@ -1,0 +1,52 @@
+<div class="login-container">
+  <h1>Login</h1>
+  <div class="input-container">
+    <input
+      class="input"
+      type="text"
+      [(ngModel)]="username"
+      required
+      (focus)="onUsernameFocus()"
+      (blur)="onUsernameBlur()"
+      (keyup) = "onUNkeyPress()"
+    />
+    <label class="placeholder-text"
+      ><div [ngClass]="{
+        'text-focus':usernameFocus,
+        'text':!usernameFocus,
+        'color-red':usernameWarning       
+      }">
+        username*
+      </div></label
+    >
+    
+    <div class="warning-text"*ngIf="usernameWarning">required</div>
+    
+  </div>
+  <div class="input-container">
+    <input
+      class="input"
+      type="password"
+      [(ngModel)]="password"
+      (focus)="onPasswordFocus()"
+      (blur)="onPasswordBlur()"
+      (keyup)="onPWkeyPress()"
+      required
+    />
+    <label class="placeholder-text"
+      ><div [ngClass]="{
+        'text-focus':passwordFocus,
+        'text':!passwordFocus,
+        'color-red':passwordWarning       
+      }">
+        password*
+      </div></label
+    >
+    
+    <div class="warning-text"*ngIf="passwordWarning">required</div>
+   
+  </div>
+
+  <button class="login-btn" [disabled]="!(!passwordWarning && !usernameWarning && username.length !==0 && password.length !== 0)" (click)="onLoginClick()">login</button>
+  <div *ngIf="flag">Username or password is incorrect!</div>
+</div>

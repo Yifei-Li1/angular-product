@@ -1,0 +1,15 @@
+<p>product id : {{productId}}
+    product name :{{product.Name}}
+</p>
+
+<div *ngIf="product" class="product-card">
+    <div class="product-image">
+      <img [src]="imageUrl" alt="Product Image">
+    </div>
+    <div class="product-info">
+      <h1>{{ product.Name }}</h1>
+      <p class="manufacturer">Manufacturer: {{ product.Manufacturer }}</p>
+      <p class="manufacturer">Price: {{ product.Price|currency }}</p>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+</div>

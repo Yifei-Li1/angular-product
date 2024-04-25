@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add New Product</h1>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="product.name" name="productName"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Manufacturer</mat-label>
+      <input matInput [(ngModel)]="product.manufacturer" name="productManufacturer"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" [(ngModel)]="product.price" name ="productPrice"/>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="product" cdkFocusInitial>Add</button>
+</div>

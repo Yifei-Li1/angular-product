@@ -1,0 +1,86 @@
+<div class="login-container">
+  <h1>Sign Up</h1>
+  <div class="input-container">
+    <input
+      class="input"
+      type="text"
+      [(ngModel)]="username"
+      required
+      (focus)="onUsernameFocus()"
+      (blur)="onUsernameBlur()"
+      (keyup)="onUNkeyPress()"
+    />
+    <label class="placeholder-text"
+      ><div
+        [ngClass]="{
+          'text-focus': usernameFocus,
+          text: !usernameFocus,
+          'color-red': usernameWarning
+        }"
+      >
+        username*
+      </div></label
+    >
+
+    <div class="warning-text" *ngIf="usernameWarning">required</div>
+  </div>
+  <div class="input-container">
+    <input
+      class="input"
+      type="password"
+      [(ngModel)]="password"
+      (focus)="onPasswordFocus()"
+      (blur)="onPasswordBlur()"
+      (keyup)="onPWkeyPress()"
+      required
+    />
+    <label class="placeholder-text"
+      ><div
+        [ngClass]="{
+          'text-focus': passwordFocus,
+          text: !passwordFocus,
+          'color-red': passwordWarning
+        }"
+      >
+        password*
+      </div></label
+    >
+
+    <div class="warning-text" *ngIf="passwordWarning">required</div>
+  </div>
+  
+  <div class="input-container">
+    <input
+      class="input"
+      type="password"
+      [(ngModel)]="confirmPassword"
+      (focus)="onConfirmPasswordFocus()"
+      (blur)="onConfirmPasswordBlur()"
+      (keyup)="onConfirmPWkeyPress()"
+      required
+    />
+    <label class="placeholder-text"
+      ><div
+        [ngClass]="{
+          'text-focus': confirmPasswordFocus,
+          text: !confirmPasswordFocus,
+          'color-red': confirmPasswordWarning
+        }"
+      >
+        confirm password*
+      </div></label
+    >
+
+    <div class="warning-text" *ngIf="confirmPasswordWarning">Password and Confirm Password must be match.
+    </div>
+  </div>
+
+  <button
+    class="login-btn"
+    [disabled]="!(!passwordWarning && !usernameWarning &&!confirmPasswordWarning && username.length !==0 && password.length !== 0 && confirmPassword.length !== 0)"
+    (click)="onSignUpClick()"
+  >
+    Sign Up
+  </button>
+  <div *ngIf="flag">Username already taken!</div>
+</div>

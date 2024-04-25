@@ -1,0 +1,32 @@
+<div class="home-container">
+  <div class="selector-container">
+    <div
+      class="selector"
+      [ngClass]="{
+        selected: login,
+        'not-selected': !login
+      }"
+      (click)="onLoginClick()"
+    >
+      Login
+    </div>
+    <div
+      class="selector"
+      class="selector"
+      [ngClass]="{
+        selected: !login,
+        'not-selected': login
+      }"
+      (click)="onSignUpClick()"
+    >
+      Sign up
+    </div>
+  </div>
+
+  <div *ngIf="login">
+    <app-login></app-login>
+  </div>
+  <div *ngIf="!login">
+    <app-sign-up></app-sign-up>
+  </div>
+</div>
